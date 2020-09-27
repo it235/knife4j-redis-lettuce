@@ -1,0 +1,24 @@
+server:
+  port: 6710
+spring:
+  profiles:
+    active: dev
+  application: demo
+
+# 此处Key不可改变
+knife4j:
+  redis:
+    # 是否采用json序列化发方式，若不采用则为JDK序列化
+    enableJsonSerial: true
+    host: localhost
+    password: knife
+    port: 6379
+    databases: [0,1,2,3,4,5,6] # 要使用的库，会根据此处填写的库生成redisTemplate
+    timeout: 60s
+    lettuce: # lettuce基于netty，线程安全，支持并发
+      pool:
+        max-active: 50
+        max-wait: -1ms
+        max-idle: 8
+        min-idle: 0
+
