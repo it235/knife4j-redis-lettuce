@@ -5,17 +5,17 @@ spring:
     active: dev
   application: demo
 
-# ´Ë´¦Key²»¿É¸Ä±ä
+# æ­¤å¤„Keyä¸å¯æ”¹å˜
 knife4j:
   redis:
-    # ÊÇ·ñ²ÉÓÃjsonĞòÁĞ»¯·¢·½Ê½£¬Èô²»²ÉÓÃÔòÎªJDKĞòÁĞ»¯
-    enableJsonSerial: true
+    # æ˜¯å¦é‡‡ç”¨jsonåºåˆ—åŒ–æ–¹å¼ï¼Œè‹¥ä¸é‡‡ç”¨åˆ™ä¸ºJDKåºåˆ—åŒ–
+    #jsonSerialType: 'Fastjson'
     host: localhost
     password: knife
     port: 6379
-    databases: [0,1,2,3,4,5,6] # ÒªÊ¹ÓÃµÄ¿â£¬»á¸ù¾İ´Ë´¦ÌîĞ´µÄ¿âÉú³ÉredisTemplate
+    databases: [0,1,2,3,4,5,6] # è¦ä½¿ç”¨çš„åº“ï¼Œä¼šæ ¹æ®æ­¤å¤„å¡«å†™çš„åº“ç”ŸæˆredisTemplate
     timeout: 60s
-    lettuce: # lettuce»ùÓÚnetty£¬Ïß³Ì°²È«£¬Ö§³Ö²¢·¢
+    lettuce: # lettuceåŸºäºnettyï¼Œçº¿ç¨‹å®‰å…¨ï¼Œæ”¯æŒå¹¶å‘
       pool:
         max-active: 50
         max-wait: -1ms

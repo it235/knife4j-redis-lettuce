@@ -1,22 +1,22 @@
 package com.github.it235.config;
 
 import com.github.it235.entity.RedisEntity;
-import com.github.it235.factory.YamlPropertySourceFactory;
-import com.github.it235.register.Knife4jRedisRegister;
 import com.github.it235.manager.Knife4jRedisManager;
+import com.github.it235.register.Knife4jRedisRegister;
+import com.github.it235.util.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeansException;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.AutoConfigureBefore;
 import org.springframework.boot.autoconfigure.data.redis.RedisAutoConfiguration;
-import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.boot.context.properties.bind.Binder;
 import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 import org.springframework.context.EnvironmentAware;
-import org.springframework.context.annotation.*;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Import;
 import org.springframework.core.env.Environment;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.StringRedisTemplate;
@@ -96,9 +96,31 @@ public class Knife4jRedisConfiguration implements EnvironmentAware , Application
         this.applicationContext = applicationContext;
     }
 
+
     @Bean
     public Knife4jRedisManager knife4jRedisManager(){
         return new Knife4jRedisManager(redisTemplateMap , stringRedisTemplateMap);
+    }
+
+    @Bean
+    public RedisBaseUtil redisBaseUtil(){
+        return new RedisBaseUtil();
+    }
+    @Bean
+    public RedisValUtil redisValUtil(){
+        return new RedisValUtil();
+    }
+    @Bean
+    public RedisListUtil redisListUtil(){
+        return new RedisListUtil();
+    }
+    @Bean
+    public RedisHashUtil redisHashUtil(){
+        return new RedisHashUtil();
+    }
+    @Bean
+    public RedisSetUtil redisSetUtil(){
+        return new RedisSetUtil();
     }
 
 

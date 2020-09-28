@@ -1,13 +1,13 @@
 package com.github.it235.knife4j.controller;
 
-import com.github.it235.knife4j.redis.util.RedisHashUtil;
-import com.github.it235.knife4j.redis.util.RedisListUtil;
-import com.github.it235.knife4j.redis.util.RedisValUtil;
+import com.github.it235.util.RedisHashUtil;
+import com.github.it235.util.RedisListUtil;
+import com.github.it235.util.RedisSetUtil;
+import com.github.it235.util.RedisValUtil;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.redis.support.collections.RedisList;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,6 +17,7 @@ import java.io.Serializable;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 /**
  * @description: redis测试接口类
@@ -104,6 +105,30 @@ public class RedisTestController {
         redisHashUtil.addMapOne(6 , key , "W" , book1);
         Long w = redisHashUtil.deleteMapVal(6, key, "W");
         System.out.println("删除hash条数：" + w);
+        return "ok";
+    }
+
+
+    @Autowired
+    private RedisSetUtil redisSetUtil;
+
+    /**
+     * 集合操作测试
+     * @param key
+     * @return
+     */
+    @GetMapping("/set/{key}")
+    public String setTest(@PathVariable("key") String key){
+        Book book1 = new Book();
+        book1.setId(1);
+        book1.setName("深入理解JVM（第三版）");
+        Book book2 = new Book();
+        book2.setId(2);
+        book2.setName("SpringBoot从实战到精通");
+        Book [] array = new Book[]{book1 , book2};
+        redisSetUtil.add(3 , key , array);
+        Set<Object> setAll = redisSetUtil.getAll(3, key);
+        System.out.println("redis库中取出的值：" + setAll);
         return "ok";
     }
 

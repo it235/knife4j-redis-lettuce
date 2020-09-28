@@ -41,4 +41,12 @@ public class Knife4jRedisManager {
         stringRedisTemplate.setEnableTransactionSupport(true);
         return stringRedisTemplate;
     }
+
+    public Map<String, RedisTemplate> getRedisTemplateMap() {
+        return redisTemplateMap;
+    }
+
+    public Map<String, StringRedisTemplate> getStringRedisTemplateMap() {
+        return stringRedisTemplateMap;
+    }
 }

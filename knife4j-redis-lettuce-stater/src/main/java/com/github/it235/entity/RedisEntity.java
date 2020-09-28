@@ -1,6 +1,8 @@
 package com.github.it235.entity;
 
 
+import com.github.it235.props.JsonSerialType;
+
 import java.time.Duration;
 import java.util.List;
 
@@ -10,7 +12,7 @@ import java.util.List;
  * @date: Created in 2020/9/27 16:03
  */
 public class RedisEntity {
-    private Boolean enableJsonSerial;
+    private JsonSerialType jsonSerialType;
     private String host;
     private Integer port;
     private String password;
@@ -18,12 +20,12 @@ public class RedisEntity {
     private Duration timeout;
     private LettuceEnity lettuce;
 
-    public Boolean getEnableJsonSerial() {
-        return enableJsonSerial;
+    public JsonSerialType getJsonSerialType() {
+        return jsonSerialType;
     }
 
-    public void setEnableJsonSerial(Boolean enableJsonSerial) {
-        this.enableJsonSerial = enableJsonSerial;
+    public void setJsonSerialType(JsonSerialType jsonSerialType) {
+        this.jsonSerialType = jsonSerialType;
     }
 
     public String getHost() {
