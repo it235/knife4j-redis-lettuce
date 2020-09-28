@@ -30,7 +30,7 @@
   knife4j:
     redis:
       # 是否采用json序列化发方式，若不采用则为JDK序列化
-      enableJsonSerial: true
+      #jsonSerialType: 'Fastjson'
       host: localhost
       password: knife # 根据自己设定进行修改
       port: 6379
