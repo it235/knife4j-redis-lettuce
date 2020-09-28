@@ -1,13 +1,9 @@
 package com.github.it235.manager;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.StringRedisTemplate;
-import org.springframework.data.redis.core.ZSetOperations;
-import org.springframework.data.redis.serializer.StringRedisSerializer;
 
-import java.util.*;
-import java.util.concurrent.TimeUnit;
+import java.util.Map;
 
 /**
  * @description:
@@ -29,10 +25,6 @@ public class Knife4jRedisManager {
 
     public RedisTemplate redisTemplate(int dbIndex) {
         RedisTemplate redisTemplate = redisTemplateMap.get("redisTemplate" + dbIndex);
-        /*redisTemplate.setKeySerializer(stringRedisSerializer);
-        redisTemplate.setValueSerializer(stringRedisSerializer);
-        redisTemplate.setHashKeySerializer(stringRedisSerializer);
-        redisTemplate.setHashValueSerializer(stringRedisSerializer);*/
         return redisTemplate;
     }
 

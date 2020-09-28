@@ -19,7 +19,7 @@
           <dependency>
               <groupId>com.github.it235</groupId>
               <artifactId>knife4j-redis-lettuce-stater</artifactId>
-              <version>1.0.0</version>
+              <version>${currentVersion}</version>
           </dependency>
   ```
 

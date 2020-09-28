@@ -8,8 +8,8 @@ spring:
 # 此处Key不可改变
 knife4j:
   redis:
-    # 是否采用json序列化方式，若不采用则为JDK序列化
-    #jsonSerialType: 'Fastjson'
+    # 是否采用json序列化方式，若不采用jackson序列化
+    jsonSerialType: 'Fastjson'
     host: localhost
     password: knife
     port: 6379

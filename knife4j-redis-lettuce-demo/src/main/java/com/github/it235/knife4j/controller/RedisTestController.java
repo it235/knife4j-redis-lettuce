@@ -72,6 +72,7 @@ public class RedisTestController {
         book2.setName("SpringBoot从实战到精通");
         Book [] array = new Book[]{book1 , book2};
         redisListUtil.insert(3 , key , array);
+
         List<Book> listAll = redisListUtil.getListAll(3, key, Book.class);
         System.out.println("redis库中取出的值：" + listAll);
 
@@ -113,7 +114,7 @@ public class RedisTestController {
     private RedisSetUtil redisSetUtil;
 
     /**
-     * 集合操作测试
+     * 集合set操作测试
      * @param key
      * @return
      */
